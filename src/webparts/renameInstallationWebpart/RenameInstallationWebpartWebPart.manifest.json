@@ -20,7 +20,7 @@
     "description": { "default": "Provides functionality for renaming Installation sites." },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "Rename Installation Webpart"
+      "description": "Provides functionality for renaming Installation sites."
     }
   }]
 }

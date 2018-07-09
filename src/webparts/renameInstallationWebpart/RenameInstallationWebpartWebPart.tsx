@@ -36,14 +36,18 @@ export default class RenameInstallationWebpartWebPart extends BaseClientSideWebP
       }
     );
 
-    // ReactDom.render(
-    //   element,
-    //   this.domElement);
     ReactDom.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
+      element,
       this.domElement);
+
+    // ReactDom.render(
+    //   <Provider store={store}>
+    //   this.domElement);
+    // ReactDom.render(
+    //   <Provider store={store}>
+    //     <App />
+    //   </Provider>,
+    //   this.domElement);
   }
 
   protected onDispose(): void {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { updateSites } from '../actions';
+import styles from '../components/RenameInstallationWebpart.module.scss';
 
 const UpdateButton = ({ sites, dispatch }) => {
   const OnClick = e => {
@@ -12,9 +13,7 @@ const UpdateButton = ({ sites, dispatch }) => {
 
   return (
     <button
-      style={{
-        margin: '2px',
-      }}
+      className={ styles.button }
       onClick={OnClick}
       disabled={sites.length <= 0}>
       Update Title(s)
