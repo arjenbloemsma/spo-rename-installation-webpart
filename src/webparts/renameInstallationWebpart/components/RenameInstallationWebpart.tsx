@@ -1,7 +1,5 @@
 import * as React from 'react';
 import styles from './RenameInstallationWebpart.module.scss';
-import { AnyAction } from 'redux';
-import { DispatchProp, connect } from 'react-redux';
 import { IRenameInstallationWebpartProps } from './IRenameInstallationWebpartProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 import App from './App';
@@ -20,7 +18,7 @@ export default class RenameInstallationWebpart extends React.Component<IRenameIn
           <div className={styles.row}>
             <div className={styles.column}>
               <span className={ styles.title }>Rename Installation Sites</span>
-              {/* <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p> */}
+              <p className={ styles.subTitle }>Some subtitle...</p>
               <p className={ styles.description }>{escape(this.props.description)}</p>
               <Provider store={store}>
                 <App />
@@ -32,10 +30,3 @@ export default class RenameInstallationWebpart extends React.Component<IRenameIn
     );
   }
 }
-
-/*
-
-              */
-/*
-
-*/
