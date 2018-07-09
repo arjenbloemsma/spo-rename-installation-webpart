@@ -6,24 +6,24 @@ import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 
 const AddSite = ({ dispatch }) => {
-  let input;
+  let textField: TextField | undefined;
   const OnSubmit = e => {
     e.preventDefault();
-    if (!input.value.trim()) {
+    if (!textField.value.trim()) {
       return;
     }
-    dispatch(getSite(input.value));
-    input.value = '';
+    dispatch(getSite(textField.value));
+    textField.setState({ value: ''});
   };
 
   return (
     <div>
       <form onSubmit={OnSubmit}>
-        <TextField ref={node => input = node} required={true} placeholder="URL of Installation site." />
+        <TextField ref={t => (textField = t!)} required={true} placeholder="URL of Installation site." />
         <DefaultButton
           primary={true}
           type="submit"
-          >
+        >
           Validate Installation URL
         </DefaultButton>
       </form>
