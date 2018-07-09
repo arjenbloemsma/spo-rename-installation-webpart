@@ -15,8 +15,8 @@ const UpdateButton = ({ sites, dispatch }) => {
     <DefaultButton
       primary={true}
       onClick={renameInstallationSites}
-      disabled={sites.length <= 0}>
-      Update Installation site(s)
+      disabled={sites.filter(s => s.siteInfo.Exists).length <= 0}>
+      Update {sites.filter(s => s.siteInfo.Exists).length} Installation site(s)
     </DefaultButton>
   );
 };
