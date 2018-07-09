@@ -11,11 +11,10 @@ import {
 import * as strings from 'RenameInstallationWebpartWebPartStrings';
 import RenameInstallationWebpart from './components/RenameInstallationWebpart';
 import { IRenameInstallationWebpartProps } from './components/IRenameInstallationWebpartProps';
-import { ISiteInfo } from "./actions/actionTypes";
 
 export interface IRenameInstallationWebpartWebPartProps {
-  description: string;
-  sites: ISiteInfo[];
+  testSiteCollectionExistsEndpoint: string;
+  addSiteUpdateRequestEndpoint: string;
 }
 
 export default class RenameInstallationWebpartWebPart extends BaseClientSideWebPart<IRenameInstallationWebpartWebPartProps> {
@@ -24,7 +23,6 @@ export default class RenameInstallationWebpartWebPart extends BaseClientSideWebP
     const element: React.ReactElement<IRenameInstallationWebpartProps> = React.createElement(
       RenameInstallationWebpart,
       {
-        description: this.properties.description,
         sites: []
       }
     );
@@ -53,8 +51,11 @@ export default class RenameInstallationWebpartWebPart extends BaseClientSideWebP
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('testSiteCollectionExistsEndpointFieldLabel', {
+                  label: strings.TestSiteCollectionExistsEndpointFieldLabel
+                }),
+                PropertyPaneTextField('addSiteUpdateRequestEndpointFieldLabel', {
+                  label: strings.AddSiteUpdateRequestEndpointFieldLabel
                 })
               ]
             }

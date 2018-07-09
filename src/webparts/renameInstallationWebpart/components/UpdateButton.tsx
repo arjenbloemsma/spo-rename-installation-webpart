@@ -3,7 +3,7 @@ import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import { updateSites } from '../actions';
 
 const UpdateButton = ({ sites, dispatch }) => {
-  const OnClick = e => {
+  const renameInstallationSites = e => {
     e.preventDefault();
     if (sites.length <= 0) {
       return;
@@ -14,7 +14,7 @@ const UpdateButton = ({ sites, dispatch }) => {
   return (
     <DefaultButton
       primary={true}
-      onClick={OnClick}
+      onClick={renameInstallationSites}
       disabled={sites.length <= 0}>
       Update Installation site(s)
     </DefaultButton>

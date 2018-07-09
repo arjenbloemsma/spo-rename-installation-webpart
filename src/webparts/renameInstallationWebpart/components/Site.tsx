@@ -2,28 +2,28 @@ import * as React from 'react';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 
 const Site = ({ siteInfo }) => {
-  let input;
-  const doOnBlur = e => {
-    siteInfo.newTitle = input.value;
+  let textField: TextField | undefined;
+  const setNewSiteTitle = e => {
+    siteInfo.newTitle = textField.value;
   };
 
   return (
     <li
       style={{
-        color: siteInfo.Exists ? 'black' : 'red'
+        color: siteInfo.Exists ? 'white' : 'red'
       }}
     >
       <span style={{
         display: siteInfo.Exists ? 'none' : 'inline'
       }}>
-      {`Provided URL '${siteInfo.userProvidedUrl}' does not exist`}
+        {`Provided URL '${siteInfo.userProvidedUrl}' does not exist`}
       </span>
       <span style={{
         display: siteInfo.Exists ? 'inline' : 'none'
       }}>
-        <TextField ref={node => input = node} placeholder="New title of Installation site."
+        <TextField ref={t => (textField = t!)} placeholder="New title of Installation site."
           label={siteInfo.Title}
-          onBlur={doOnBlur}
+          onBlur={setNewSiteTitle}
           disabled={!siteInfo.Exists} />
       </span>
     </li>

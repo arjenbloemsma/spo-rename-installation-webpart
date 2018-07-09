@@ -1,7 +1,8 @@
 declare interface IRenameInstallationWebpartWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  TestSiteCollectionExistsEndpointFieldLabel: string;
+  AddSiteUpdateRequestEndpointFieldLabel: string;
 }
 
 declare module 'RenameInstallationWebpartWebPartStrings' {

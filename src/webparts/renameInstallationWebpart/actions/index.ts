@@ -1,8 +1,8 @@
 import { Action, ActionTypes, ISiteInfo } from './actionTypes';
 
 let nextSiteId: number = 0;
-const getSiteEndpoint = 'https://mlk-site-provisioning-dev-fa-we.azurewebsites.net/api/test-site-collection-exists?code=lPsoWGbAA1FJiHZbaC0/azWRBAN3DTzpuXhwgzIKv26TRrBuVgrYEQ==';
-const updateSiteEndpoint = 'https://mlk-site-provisioning-dev-fa-we.azurewebsites.net/api/add-site-update-request?code=W49Z0JyFrBQbO2vmGBXQesTdU6K9Ee1nNn3l6H0c4ba9wnUEg/YuJA==';
+const testSiteCollectionExistsEndpoint = 'https://mlk-site-provisioning-dev-fa-we.azurewebsites.net/api/test-site-collection-exists?code=lPsoWGbAA1FJiHZbaC0/azWRBAN3DTzpuXhwgzIKv26TRrBuVgrYEQ==';
+const addSiteUpdateRequestEndpoint = 'https://mlk-site-provisioning-dev-fa-we.azurewebsites.net/api/add-site-update-request?code=W49Z0JyFrBQbO2vmGBXQesTdU6K9Ee1nNn3l6H0c4ba9wnUEg/YuJA==';
 const header = new Headers({
   'Access-Control-Allow-Origin': '*',
   'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ export function getSite(url: string) {
     dispatch(getSiteRequest());
 
     try {
-      const data = await fetch(`${getSiteEndpoint}&relativeUrl=${url}`, {
+      const data = await fetch(`${testSiteCollectionExistsEndpoint}&relativeUrl=${url}`, {
         headers: header,
         mode: 'cors',
       })
@@ -75,7 +75,7 @@ export function updateSites(sites: any[]) {
       updateMessageBody.slice(0, -1) :
       updateMessageBody;
     try {
-      await fetch(updateSiteEndpoint, {
+      await fetch(addSiteUpdateRequestEndpoint, {
         body: `{
           "Type": "UpdateSiteMetadata",
           "Sites": [

@@ -20,7 +20,8 @@
     "description": { "default": "Provides functionality for renaming Installation sites." },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "Provides functionality for renaming Installation sites."
+      "TestSiteCollectionExistsEndpointFieldLabel": "https://testSiteCollectionExistsEndpoint",
+      "AddSiteUpdateRequestEndpointFieldLabel": "https://addSiteUpdateRequestEndpoint"
     }
   }]
 }

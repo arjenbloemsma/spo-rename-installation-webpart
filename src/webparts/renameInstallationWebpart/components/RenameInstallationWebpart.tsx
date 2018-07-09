@@ -19,7 +19,7 @@ export default class RenameInstallationWebpart extends React.Component<IRenameIn
             <div className={styles.column}>
               <span className={ styles.title }>Rename Installation Sites</span>
               <p className={ styles.subTitle }>Some subtitle...</p>
-              <p className={ styles.description }>{escape(this.props.description)}</p>
+              <p className={ styles.description }>{escape('a nice description')}</p>
               <Provider store={store}>
                 <App />
               </Provider>

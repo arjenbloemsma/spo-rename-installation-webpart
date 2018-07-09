@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.5.0",
+    "libraryName": "spo-rename-installation-webpart",
+    "libraryId": "3fa0716f-b0f3-46b0-9584-691d15da91e6",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}
