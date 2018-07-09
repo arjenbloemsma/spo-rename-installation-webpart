@@ -1,14 +1,15 @@
 import * as React from 'react';
 import AddSite from '../containers/AddSite';
 import ContainerButton from '../containers/ContainerButton';
+import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
 import VisibleSiteList from '../containers/VisibleSiteList';
 
 const App = () => (
-  <div>
+  <Fabric>
     <AddSite />
     <VisibleSiteList />
     <ContainerButton />
-  </div>
+  </Fabric>
 );
 
 export default App;

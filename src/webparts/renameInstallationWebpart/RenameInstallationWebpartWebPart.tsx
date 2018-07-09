@@ -12,18 +12,11 @@ import * as strings from 'RenameInstallationWebpartWebPartStrings';
 import RenameInstallationWebpart from './components/RenameInstallationWebpart';
 import { IRenameInstallationWebpartProps } from './components/IRenameInstallationWebpartProps';
 import { ISiteInfo } from "./actions/actionTypes";
-import App from './components/App';
 
 export interface IRenameInstallationWebpartWebPartProps {
   description: string;
   sites: ISiteInfo[];
 }
-
-import thunk from 'redux-thunk';
-import { applyMiddleware, createStore } from 'redux';
-import rootReducer from './reducers';
-
-const store = createStore(rootReducer, {}, applyMiddleware(thunk));
 
 export default class RenameInstallationWebpartWebPart extends BaseClientSideWebPart<IRenameInstallationWebpartWebPartProps> {
 
@@ -39,15 +32,6 @@ export default class RenameInstallationWebpartWebPart extends BaseClientSideWebP
     ReactDom.render(
       element,
       this.domElement);
-
-    // ReactDom.render(
-    //   <Provider store={store}>
-    //   this.domElement);
-    // ReactDom.render(
-    //   <Provider store={store}>
-    //     <App />
-    //   </Provider>,
-    //   this.domElement);
   }
 
   protected onDispose(): void {

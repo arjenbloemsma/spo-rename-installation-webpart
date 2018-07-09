@@ -3,6 +3,7 @@ import { AnyAction } from 'redux';
 import { DispatchProp, connect } from 'react-redux';
 import { getSite } from '../actions';
 import styles from '../components/RenameInstallationWebpart.module.scss';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
 
 const AddSite = ({ dispatch }) => {
   let input;
@@ -18,13 +19,10 @@ const AddSite = ({ dispatch }) => {
   return (
     <div>
       <form onSubmit={OnSubmit}>
-        <input ref={node => input = node} />
+        <TextField ref={node => input = node} required={true} placeholder="URL of Installation site." />
         <button type="submit" className={ styles.button }>
-          Retrieve Another Site To Rename
+          Validate provided Installation URL.
         </button>
-                      {/* <a href="https://aka.ms/spfx" className={ styles.button }>
-                <span className={ styles.label }>Learn more</span>
-              </a> */}
       </form>
     </div>
   );

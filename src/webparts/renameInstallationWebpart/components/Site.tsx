@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
 
 const Site = ({ siteInfo }) => {
   let input;
@@ -12,15 +13,19 @@ const Site = ({ siteInfo }) => {
         color: siteInfo.Exists ? 'black' : 'red'
       }}
     >
-      {siteInfo.Exists ? siteInfo.Title : `Provided URL '${siteInfo.userProvidedUrl}' does not exist`}
-      <input
-        ref={node => input = node}
-        style={{
-          display: siteInfo.Exists ? 'inline' : 'none'
-        }}
-        type='text'
-        onBlur={doOnBlur}
-        disabled={!siteInfo.Exists} />
+      <span style={{
+        display: siteInfo.Exists ? 'none' : 'inline'
+      }}>
+      {`Provided URL '${siteInfo.userProvidedUrl}' does not exist`}
+      </span>
+      <span style={{
+        display: siteInfo.Exists ? 'inline' : 'none'
+      }}>
+        <TextField ref={node => input = node} placeholder="New title of Installation site."
+          label={siteInfo.Title}
+          onBlur={doOnBlur}
+          disabled={!siteInfo.Exists} />
+      </span>
     </li>
   );
 };
