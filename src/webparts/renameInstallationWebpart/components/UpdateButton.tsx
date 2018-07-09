@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import { updateSites } from '../actions';
-import styles from '../components/RenameInstallationWebpart.module.scss';
 
 const UpdateButton = ({ sites, dispatch }) => {
   const OnClick = e => {
@@ -12,12 +12,12 @@ const UpdateButton = ({ sites, dispatch }) => {
   };
 
   return (
-    <button
-      className={ styles.button }
+    <DefaultButton
+      primary={true}
       onClick={OnClick}
       disabled={sites.length <= 0}>
-      Update Title(s)
-    </button>
+      Update Installation site(s)
+    </DefaultButton>
   );
 };
 

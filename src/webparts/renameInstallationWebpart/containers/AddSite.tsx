@@ -2,8 +2,8 @@ import * as React from 'react';
 import { AnyAction } from 'redux';
 import { DispatchProp, connect } from 'react-redux';
 import { getSite } from '../actions';
-import styles from '../components/RenameInstallationWebpart.module.scss';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
+import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 
 const AddSite = ({ dispatch }) => {
   let input;
@@ -20,9 +20,12 @@ const AddSite = ({ dispatch }) => {
     <div>
       <form onSubmit={OnSubmit}>
         <TextField ref={node => input = node} required={true} placeholder="URL of Installation site." />
-        <button type="submit" className={ styles.button }>
-          Validate provided Installation URL.
-        </button>
+        <DefaultButton
+          primary={true}
+          type="submit"
+          >
+          Validate Installation URL
+        </DefaultButton>
       </form>
     </div>
   );
