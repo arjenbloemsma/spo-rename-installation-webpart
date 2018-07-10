@@ -4,8 +4,6 @@ import { loadTheme, getTheme } from 'office-ui-fabric-react/lib/Styling';
 
 const Site = ({ siteInfo }) => {
   let textField: TextField | undefined;
-  let myTheme = getTheme();
-  console.log(myTheme);
   const setNewSiteTitle = e => {
     siteInfo.newTitle = textField.value;
   };
