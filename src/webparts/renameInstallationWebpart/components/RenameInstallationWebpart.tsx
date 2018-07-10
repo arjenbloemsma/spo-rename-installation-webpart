@@ -18,8 +18,7 @@ export default class RenameInstallationWebpart extends React.Component<IRenameIn
           <div className={styles.row}>
             <div className={styles.column}>
               <span className={ styles.title }>Rename Installation Sites</span>
-              <p className={ styles.subTitle }>Some subtitle...</p>
-              <p className={ styles.description }>{escape('a nice description')}</p>
+              <p className={ styles.description }>{escape('Use this webpart for renaming one or more Installation sites in one go. You can do this simply by providing a (relative) URL, clicking the validate button and add the desired name in the textfield that is displaying the current title of the Installation site. Repeat this if you would like to rename more Installation sites. Once you provided a new title for all the Installation sites, click the update button.')}</p>
               <Provider store={store}>
                 <App />
               </Provider>

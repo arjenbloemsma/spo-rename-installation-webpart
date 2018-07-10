@@ -3,9 +3,10 @@ import { DefaultButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 import { updateSites } from '../actions';
 
 const UpdateButton = ({ sites, dispatch }) => {
+  const numberOfSitesToRename = sites.filter(s => s.siteInfo.Exists).length;
   const renameInstallationSites = e => {
     e.preventDefault();
-    if (sites.length <= 0) {
+    if (numberOfSitesToRename <= 0) {
       return;
     }
     dispatch(updateSites(sites));
@@ -15,8 +16,8 @@ const UpdateButton = ({ sites, dispatch }) => {
     <DefaultButton
       primary={true}
       onClick={renameInstallationSites}
-      disabled={sites.filter(s => s.siteInfo.Exists).length <= 0}>
-      Update {sites.filter(s => s.siteInfo.Exists).length} Installation site(s)
+      disabled={numberOfSitesToRename <= 0}>
+      Update {numberOfSitesToRename} Installation site(s)
     </DefaultButton>
   );
 };
