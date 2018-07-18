@@ -6,6 +6,4 @@ const mapStateToProps = state => ({
   sites: state.sites
 });
 
-export default connect(
-  mapStateToProps
-)(SiteList);
+export default connect(mapStateToProps)(SiteList);

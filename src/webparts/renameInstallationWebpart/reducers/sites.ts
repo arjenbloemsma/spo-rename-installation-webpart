@@ -12,6 +12,8 @@ const sites = (state = initialState, action) => {
           siteInfo: { ...action.siteInfo, newTitle: null }
         }
       ];
+    case ActionTypes.UPDATE_SITES_SUCCESS:
+      return initialState;
     default:
       return state;
   }
