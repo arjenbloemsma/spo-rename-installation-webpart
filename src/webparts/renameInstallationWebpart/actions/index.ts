@@ -2,11 +2,11 @@ import { Action, ActionTypes, ISiteInfo } from './actionTypes';
 
 let nextSiteId: number = 0;
 // DEV
-// const testSiteCollectionExistsEndpoint = 'https://mlk-site-provisioning-dev-fa-we.azurewebsites.net/api/test-site-collection-exists?code=lPsoWGbAA1FJiHZbaC0/azWRBAN3DTzpuXhwgzIKv26TRrBuVgrYEQ==';
-// const addSiteUpdateRequestEndpoint = 'https://mlk-site-provisioning-dev-fa-we.azurewebsites.net/api/add-site-update-request?code=W49Z0JyFrBQbO2vmGBXQesTdU6K9Ee1nNn3l6H0c4ba9wnUEg/YuJA==';
+const testSiteCollectionExistsEndpoint = 'https://mlk-site-provisioning-dev-fa-we.azurewebsites.net/api/test-site-collection-exists?code=lPsoWGbAA1FJiHZbaC0/azWRBAN3DTzpuXhwgzIKv26TRrBuVgrYEQ==';
+const addSiteUpdateRequestEndpoint = 'https://mlk-site-provisioning-dev-fa-we.azurewebsites.net/api/add-site-update-request?code=W49Z0JyFrBQbO2vmGBXQesTdU6K9Ee1nNn3l6H0c4ba9wnUEg/YuJA==';
 // PRD
-const testSiteCollectionExistsEndpoint = 'https://mlk-site-provisioning-prd-fa-we.azurewebsites.net/api/test-site-collection-exists?code=9iGSZ7QxYVBBBqAJmHh2PQTP/3bsYh/rzBUb6TPjqEjWjFzTJiiAdg==';
-const addSiteUpdateRequestEndpoint = 'https://mlk-site-provisioning-prd-fa-we.azurewebsites.net/api/add-site-update-request?code=KligFE6mZyBmEWQSADqAZmT2l3pMTsPWSKgDXZN2bQNwHr7QHPpUiw==';
+// const testSiteCollectionExistsEndpoint = 'https://mlk-site-provisioning-prd-fa-we.azurewebsites.net/api/test-site-collection-exists?code=9iGSZ7QxYVBBBqAJmHh2PQTP/3bsYh/rzBUb6TPjqEjWjFzTJiiAdg==';
+// const addSiteUpdateRequestEndpoint = 'https://mlk-site-provisioning-prd-fa-we.azurewebsites.net/api/add-site-update-request?code=KligFE6mZyBmEWQSADqAZmT2l3pMTsPWSKgDXZN2bQNwHr7QHPpUiw==';
 const header = new Headers({
   'Access-Control-Allow-Origin': '*',
   'Content-Type': 'application/json'

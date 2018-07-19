@@ -1,35 +1,29 @@
 import * as React from 'react';
 import { DefaultButton, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import { Dialog, DialogBase, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog';
-import { DispatchProp, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { updateSites } from '../actions';
 
-const UpdateButton = ({ sites, dispatch }) => {
-  //this.state = { hideDialog: true };
-  //this.props.hidden = true;
+const UpdateButton = ({ dispatch, sites }) => {
   const numberOfSitesToRename = sites.filter(s => s.siteInfo.Exists).length;
 
   //let dialog: DialogBase | undefined;
   let dialog: any;
-  const _showDialog = (): void => {
-    //setState({ hideDialog: false });
-    //this.props.hidden = false;
-    dialog.setState({ hidden: false });
+  const showDialog = (): void => {
+    dialog.setState({ hideDialog: false });
   };
-  const _closeDialog = (): void => {
-    //this.setState({ hideDialog: true });
-    //this.props.hidden = true;
-    dialog.setState({ hidden: true });
+  const closeDialog = (): void => {
+    dialog.setState({ hideDialog: true });
   };
+  //this.state.hideDialog = true;
   const renameInstallationSites = e => {
     e.preventDefault();
     if (numberOfSitesToRename <= 0) {
       return;
     }
     dispatch(updateSites(sites));
-    _showDialog();
+    showDialog();
   };
-
 
   return (
     <div>
@@ -42,7 +36,7 @@ const UpdateButton = ({ sites, dispatch }) => {
       <Dialog
         ref={d => (dialog = d!)}
         hidden={true}
-        onDismiss={_closeDialog}
+        onDismiss={closeDialog}
         dialogContentProps={{
           type: DialogType.normal,
           title: 'Validate updated sites',
@@ -58,11 +52,11 @@ const UpdateButton = ({ sites, dispatch }) => {
       >
         {null /** You can also include null values as the result of conditionals */}
         <DialogFooter>
-          <PrimaryButton onClick={_closeDialog} text="Save" />
-          <DefaultButton onClick={_closeDialog} text="Cancel" />
+          <PrimaryButton onClick={closeDialog} text="Save" />
+          <DefaultButton onClick={closeDialog} text="Cancel" />
         </DialogFooter>
       </Dialog>
     </div>);
 };
 
-export default UpdateButton;
+export default connect()(UpdateButton);
