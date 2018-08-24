@@ -25,7 +25,7 @@ class ClickableTitle extends React.Component<any, any>{
 
   public render () {
     return (
-      <a href={this.state.url}>{this.state.title}</a>
+      <a href={this.state.url} target="_blank">{this.state.title}</a>
     )
   }
 }
@@ -99,7 +99,7 @@ class UpdateButton extends React.Component<Props, State> {
           </ListComponent>
           {null /** You can also include null values as the result of conditionals */}
           <DialogFooter>
-            <PrimaryButton onClick={(e) => this.renameInstallationSites(e)} text="Save" />
+            <PrimaryButton onClick={(e) => this.renameInstallationSites(e)} text="Done" />
             <DefaultButton onClick={() => this.toggleDialog()} text="Cancel" />
           </DialogFooter>
         </Dialog>
