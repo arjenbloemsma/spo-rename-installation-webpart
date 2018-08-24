@@ -14,15 +14,46 @@ interface State {
   hideDialog: boolean
 };
 
+class ClickableTitle extends React.Component<any, any>{
+  constructor(props: any){
+    super(props);
+    this.state = {
+      url: this.props.url,
+      title: this.props.title
+    };
+  }
+
+  public render () {
+    return (
+      <a href={this.state.url}>{this.state.title}</a>
+    )
+  }
+}
+
+var ListComponent = React.createClass({
+  render: function() {
+    // Notice how we use the React.Children.map utility
+    // here instead of working with this.props.children directly.
+    // For the curious, add a debugger statement here
+    // and examine this.props.
+    var children = React.Children.map(
+      this.props.children,
+      function(child) {
+        return <li>{child}</li>;
+      }
+    );
+    return <ul>{children}</ul>;
+  }
+});
+
 class UpdateButton extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = { hideDialog: true };
   }
-  getNumberOfSitesToRename() {
+  getValidSites() {
     const { sites } = this.props;
-    const numberOfSitesToRename = sites.filter(s => s.siteInfo.Exists).length;
-    return numberOfSitesToRename;
+    return sites.filter(s => s.siteInfo.Exists);
   }
   toggleDialog() {
     this.setState({ hideDialog: !this.state.hideDialog })
@@ -30,7 +61,7 @@ class UpdateButton extends React.Component<Props, State> {
   renameInstallationSites(e) {
     e.preventDefault();
     const { updateSites, sites } = this.props;
-    const numberOfSitesToRename = this.getNumberOfSitesToRename();
+    const numberOfSitesToRename = this.getValidSites().length;
     if (numberOfSitesToRename <= 0) {
       return;
     }
@@ -38,7 +69,7 @@ class UpdateButton extends React.Component<Props, State> {
     this.toggleDialog();
   }
   render() {
-    const numberOfSitesToRename = this.getNumberOfSitesToRename();
+    const numberOfSitesToRename = this.getValidSites().length;
     return (
       <div>
         <DefaultButton
@@ -54,7 +85,7 @@ class UpdateButton extends React.Component<Props, State> {
             type: DialogType.normal,
             title: 'Validate updated sites',
             subText:
-            'Validate the following updated Installation sites:'
+            'Validate the title(s) of the following updated Installation site(s)'
           }}
           modalProps={{
             titleAriaId: 'myLabelId',
@@ -63,6 +94,9 @@ class UpdateButton extends React.Component<Props, State> {
             containerClassName: 'ms-dialogMainOverride'
           }}
         >
+          <ListComponent>
+            {this.getValidSites().map(s => <ClickableTitle url={s.siteInfo.AbsoluteUri} title={s.siteInfo.RelativeUrl} />)}
+          </ListComponent>
           {null /** You can also include null values as the result of conditionals */}
           <DialogFooter>
             <PrimaryButton onClick={(e) => this.renameInstallationSites(e)} text="Save" />
