@@ -3,7 +3,7 @@
   "solution": {
     "name": "Rename-Installations-WebPart",
     "id": "3fa0716f-b0f3-46b0-9584-691d15da91e6",
-    "version": "1.0.0.1",
+    "version": "1.0.0.2",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true
   },
